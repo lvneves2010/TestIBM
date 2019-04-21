@@ -1,0 +1,22 @@
+<div style="text-align:center">
+    <h1>
+      Bem vindo ao sistema de controle de chamados!!
+    </h1>
+  </div>
+  
+  <div class="container">
+    <form *ngIf="!showChat" class="form" action="">
+      <input type="text" name="name" placeholder="Digite seu nome">
+      <button (click)="saveName()">continuar</button>
+    </form>
+    <div *ngIf="showChat" class="chatbot">
+      <div class="chat">
+        <div *ngFor="let msg of messages">
+          {{msg}}
+        </div>
+      </div>
+      <textarea class="text-box" name="" id="" [(ngModel)]="message" placeholder="Digite seu problema...">
+      </textarea>
+      <button (click)="sendMessage()">send</button>
+    </div>
+  </div>
