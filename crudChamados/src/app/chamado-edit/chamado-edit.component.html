@@ -1,0 +1,36 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" (click)="chamadoDetails()"><mat-icon>show</mat-icon></a>
+</div>
+<form [formGroup]="chamadoForm" (ngSubmit)="onFormSubmit(chamadoForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="NOME" formControlName="nome"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!chamadoForm.get('nome').valid && chamadoForm.get('nome').touched">Please enter NOME</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Descrição" formControlName="descricao"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!chamadoForm.get('descricao').valid && chamadoForm.get('descricao').touched">Please enter Chamado Descrição</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Situação" formControlName="situacao"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!chamadoForm.get('situacao').valid && chamadoForm.get('situacao').touched">Please enter Chamado Situação</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Atendente" formControlName="atendente"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!chamadoForm.get('atendente').valid && chamadoForm.get('atendente').touched">Please enter Atendente</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!chamadoForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>
