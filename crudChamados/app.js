@@ -12,7 +12,10 @@ mongoose.connect('mongodb://localhost/testeIBM')
 var apiRouter = require('./routes/chamado');
 
 var app = express();
-
+app.use(function(req, res, next){
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	next();
+});
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

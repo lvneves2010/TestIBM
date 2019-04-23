@@ -5,18 +5,24 @@
   </div>
   
   <div class="container">
-    <form *ngIf="!showChat" class="form" action="">
-      <input type="text" name="name" placeholder="Digite seu nome">
-      <button (click)="saveName()">continuar</button>
-    </form>
-    <div *ngIf="showChat" class="chatbot">
+    <div class="chatbot">
       <div class="chat">
-        <div *ngFor="let msg of messages">
-          {{msg}}
+        <div *ngFor="let msgObj of messages">
+          <div class="from-{{msgObj.from}}">
+            <div class="message-inner">
+              <p>{{msgObj.msg}}</p>
+            </div>
+          </div>
         </div>
       </div>
-      <textarea class="text-box" name="" id="" [(ngModel)]="message" placeholder="Digite seu problema...">
-      </textarea>
-      <button (click)="sendMessage()">send</button>
+      <label for="textInput" class="inputOutline">
+        <input id="textInput" (keyup.enter)="sendMessage()" [(ngModel)]="message" class="input responsive-column" autofocus placeholder="Say something" type="text">
+      </label>
+    </div>
+    <div class="chamados">
+      <ibm-chamados *ngIf="showChamados == 'chamados'" (changeChamados)="changeChamados($event)"></ibm-chamados>
+      <ibm-chamado-create *ngIf="showChamados == 'create'" (changeChamados)="changeChamados($event)"></ibm-chamado-create>
+      <ibm-chamado-detail *ngIf="showChamados == 'detail'" (changeChamados)="changeChamados($event)"></ibm-chamado-detail>
+      <ibm-chamado-edit *ngIf="showChamados == 'edit'" (changeChamados)="changeChamados($event)"></ibm-chamado-edit>
     </div>
   </div>
