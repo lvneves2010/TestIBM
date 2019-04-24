@@ -3,7 +3,7 @@
 </div>
 <form [formGroup]="chamadoForm" (ngSubmit)="onFormSubmit(chamadoForm.value)">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="NOME" formControlName="nome"
+    <input matInput placeholder="Nome" formControlName="nome"
            [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!chamadoForm.get('nome').valid && chamadoForm.get('nome').touched">Please enter NOME</span>
