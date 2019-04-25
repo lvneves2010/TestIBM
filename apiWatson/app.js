@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static('./public'));
 
-const port = 3000;
+const port = 3001;
 
 const assistant = new AssistantV1({
   version: '2019-02-28',

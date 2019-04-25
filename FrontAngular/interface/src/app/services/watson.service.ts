@@ -14,7 +14,7 @@ export class WatsonService extends ApiService{
 
   getSalutation() {
     return new Promise((resolve, reject) => {
-      super.get('3001', 'mensagem', {texto: ''}).then((response) => {
+      super.post('3001', 'conversation/', {texto: ''}).then((response) => {
         console.log(response);
         resolve(response);
       })
@@ -22,7 +22,7 @@ export class WatsonService extends ApiService{
   }
   getMsg(msg : string){
   	return new Promise((resolve, reject) => {
-  		super.get('3001', 'mensagem', {texto: msg}).then((response) => {
+  		super.post('3001', 'conversation/', {texto: msg}).then((response) => {
   			console.log(response);
   			resolve(response);
   		})
