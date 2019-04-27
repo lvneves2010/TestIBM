@@ -15,7 +15,6 @@ export class ChamadoComponent implements OnInit {
   chamados: any;
   displayedColumns = ["Nome", "Descrição", "Situação"];
   public apiservice: ApiService;
-  private http: HttpClient;
   database =
     [
       {
@@ -73,99 +72,9 @@ export class ChamadoComponent implements OnInit {
         "__v": 0
       },
       {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
-        "_id": "5cbc5459be69a50610203b2e",
-        "nome": "Leonardo Neves",
-        "descricao": "Teste novo BD",
-        "situacao": "Encerrado",
-        "atendente": "Vinicius",
-        "updated_date": "2019-04-21T11:30:33.329Z",
-        "__v": 0
-      },
-      {
         "_id": "5cbc574e696c9f1e80f6ef85",
         "nome": "gustavo Campos",
-        "descricao": "esta trabalhando de domingo ate alas horas da madrugada",
+        "descricao": "bicicleta roubada tem que fazer a reservista, assistir oooooodsjhjhfkjhsjgsfbb    jdfkjhdfjkhhfd",
         "situacao": "em aberto",
         "atendente": "Jun",
         "updated_date": "2019-04-21T11:43:10.887Z",
@@ -200,19 +109,15 @@ export class ChamadoComponent implements OnInit {
       }
     ];
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
-    console.log('aqui');
-    // this.resposta = this.http.get("http://localhost:3000/api");
-    // this.chamados = this.apiservice.getChamados();
-    // console.log("chamados", this.resposta);
-    //  this.apiservice.getChamados()
-    //   .then(res => {
-    //     console.log(res);
-    //     this.chamados = res;
-    //   }, err => {
-    //     console.log(err);
-    //   });
+    this.api.getChamados()
+      .subscribe(res => {
+        console.log(res);
+        this.chamados = res;
+      }, err => {
+        console.log(err);
+      });
   }
-}
+  }

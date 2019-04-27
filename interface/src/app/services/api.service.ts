@@ -35,12 +35,10 @@ export class ApiService {
     return body || { };
   }
 
-  getChamados() {
-    console.log("mandei daqui");
-    return this.http.get(apiUrl, httpOptions);
-    // .pipe(
-    //   map(this.extractData),
-    //   catchError(this.handleError));
+  getChamados(): Observable<any> {
+    return this.http.get(apiUrl, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
   }
 
   getChamado(id: string): Observable<any> {

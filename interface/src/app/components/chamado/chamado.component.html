@@ -8,10 +8,10 @@
       <th class="line-title">Descrição</th>
       <th class="line-title">Situação</th>
     </tr>
-    <tr *ngFor="let data of database" class="table-row" [routerLink]="['/chamado-details']">
-      <td class="line">{{ data.nome }}</td>
-      <td class="line">{{ data.descricao }}</td>
-      <td class="line">{{ data.situacao }}</td>
+    <tr *ngFor="let chamado of chamados" class="table-row" [routerLink]="['/chamado-details']">
+      <td class="line">{{ chamado.nome }}</td>
+      <td class="line">{{ chamado.descricao }}</td>
+      <td class="line">{{ chamado.situacao }}</td>
     </tr>
   </table>
 </div>
