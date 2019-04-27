@@ -8,7 +8,7 @@
       <th class="line-title">Descrição</th>
       <th class="line-title">Situação</th>
     </tr>
-    <tr *ngFor="let chamado of chamados" class="table-row" [routerLink]="['/chamado-details']">
+    <tr *ngFor="let chamado of chamados" class="table-row" [routerLink]="['/chamado-details', chamado._id]">
       <td class="line">{{ chamado.nome }}</td>
       <td class="line">{{ chamado.descricao }}</td>
       <td class="line">{{ chamado.situacao }}</td>

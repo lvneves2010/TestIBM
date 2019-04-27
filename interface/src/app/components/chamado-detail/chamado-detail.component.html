@@ -18,5 +18,5 @@
 </div>
 <div class="button-row">
   <button class="primary" [routerLink]="['/chamado-edit']">Editar</button>
-  <button class="primary">Apagar</button>
+  <button class="primary" (click)="deleteChamado(chamado._id)">Apagar</button>
 </div>

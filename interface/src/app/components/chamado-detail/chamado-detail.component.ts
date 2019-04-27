@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-chamado-detail',
@@ -7,23 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChamadoDetailComponent implements OnInit {
 
-  chamado =
-    {
-      "_id": "5cbc5459be69a50610203b2e",
-      "nome": "Leonardo Neves",
-      "descricao": "Teste novo BD",
-      "situacao": "Encerrado",
-      "atendente": "Vinicius",
-      "updated_date": "2019-04-21T11:30:33.329Z",
-      "__v": 0
-    }
+  chamado = {}
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
 
   ngOnInit() {
+    this.getChamadoDetails(this.route.snapshot.params['id']);
   }
 
-  delete() {
-    
+  getChamadoDetails(id) {
+    this.api.getChamado(id)
+      .subscribe(data => {
+        console.log(data);
+        this.chamado = data;
+      });
+  }
+
+  deleteChamado(id) {
+    this.api.deleteChamado(id)
+      .subscribe(res => {
+          this.router.navigate(['/chamado']);
+        }, (err) => {
+          console.log(err);
+        }
+      );
   }
 }
