@@ -1,0 +1,33 @@
+.button-row {
+  text-align: left;
+  margin: 3%;
+  .primary {
+    background-color: #00B4A0;
+    color: antiquewhite;
+    border-radius: 30%;
+    min-width: 50px;
+    min-height: 30px;
+    font-size: 25px;
+  }
+}
+.container {
+  .table {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    display: inline;
+    color: grey;
+    .table-row {
+      .line {
+        border-bottom-style: solid;
+        border-width: 1px;
+        border-color: #00B4A0;
+      }
+      .line-title{
+        border-bottom-style: solid;
+        border-width: 3px;
+        border-color: #00B4A0;
+      }
+    }
+  }
+}

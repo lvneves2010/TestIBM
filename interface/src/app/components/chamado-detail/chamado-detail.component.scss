@@ -1,0 +1,22 @@
+.button-row {
+    text-align: left;
+    margin: 3%;
+    .primary {
+      background-color: #00B4A0;
+      color: white;
+      border-radius: 30%;
+      min-width: 50px;
+      min-height: 30px;
+      font-size: 25px;
+    }
+  }
+  .container {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    display: inline;
+    color: grey;
+    .detail {
+        text-align: left;
+    }
+  }

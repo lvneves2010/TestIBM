@@ -1,0 +1,17 @@
+<div class="button-row">
+  <button class="primary" [routerLink]="['/chamado-create']">+</button>
+</div>
+<div class="container">
+  <table class="table">
+    <tr class="table-row">
+      <th class="line-title">Nome</th>
+      <th class="line-title">Descrição</th>
+      <th class="line-title">Situação</th>
+    </tr>
+    <tr *ngFor="let data of database" class="table-row" [routerLink]="['/chamado-details']">
+      <td class="line">{{ data.nome }}</td>
+      <td class="line">{{ data.descricao }}</td>
+      <td class="line">{{ data.situacao }}</td>
+    </tr>
+  </table>
+</div>

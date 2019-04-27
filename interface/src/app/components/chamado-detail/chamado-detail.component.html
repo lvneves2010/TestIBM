@@ -1,0 +1,22 @@
+<div>
+  <div class="button-row">
+    <button class="primary" [routerLink]="['/chamado']">Voltar</button>
+  </div>
+  <div class="container">
+    <h2>{{chamado.descricao}}</h2>
+    <dl class="detail">
+      <dt>NOME:</dt>
+      <dd>{{chamado.nome}}</dd>
+      <dt>Situação:</dt>
+      <dd>{{chamado.situacao}}</dd>
+      <dt>Atendente:</dt>
+      <dd>{{chamado.atendente}}</dd>
+      <dt>Update Date:</dt>
+      <dd>{{chamado.updated_date | date}}</dd>
+    </dl>
+  </div>
+</div>
+<div class="button-row">
+  <button class="primary" [routerLink]="['/chamado-edit']">Editar</button>
+  <button class="primary">Apagar</button>
+</div>

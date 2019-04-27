@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="button-row">
+      <button class="primary" [routerLink]="['/chamado']">Voltar</button>
+    </div>
+    <form action="submit">
+      <div class="form-group">
+        <label for="name">Nome</label><br>
+        <input type="text" class="form-control" id="nome" required placeholder={{chamado.nome}}>
+      </div>
+  
+      <div class="form-group">
+        <label for="descricao">Descrição</label><br>
+        <input type="text" class="form-control" id="descricao" required placeholder={{chamado.descricao}}>
+      </div>
+  
+      <div class="form-group">
+        <label for="situacao">Situação</label><br>
+        <input type="text" class="form-control" id=situacao required placeholder={{chamado.situacao}}>
+      </div>
+  
+      <div class="form-group">
+        <label for="atendente">Atendente</label><br>
+        <input type="text" class="form-control" id="atendente" required placeholder={{chamado.atendente}}>
+      </div>
+    </form>
+  
+    <div class="button-row">
+      <button class="primary">Salvar</button>
+    </div>
+  </div>
