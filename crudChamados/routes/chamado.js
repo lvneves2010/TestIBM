@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Chamado = require('../models/Chamado.js');
 
-/* GET ALL CHAMADOS */
+/*CHAMADOS */
 router.get('/', function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   Chamado.find(function (err, products) {
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET SINGLE CHAMADO BY ID */
+/*CHAMADO BY ID */
 router.get('/:id', function(req, res, next) {
   Chamado.findById(req.params.id, function (err, post) {
     if (err) return next(err);

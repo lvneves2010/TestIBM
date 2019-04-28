@@ -6,28 +6,28 @@
     <input matInput placeholder="NOME" formControlName="nome"
            [errorStateMatcher]="matcher">
     <mat-error>
-      <span *ngIf="!chamadoForm.get('nome').valid && chamadoForm.get('nome').touched">Please enter NOME</span>
+      <span *ngIf="!chamadoForm.get('nome').valid && chamadoForm.get('nome').touched">Por favor preencha o nome</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Descrição" formControlName="descricao"
            [errorStateMatcher]="matcher">
     <mat-error>
-      <span *ngIf="!chamadoForm.get('descricao').valid && chamadoForm.get('descricao').touched">Please enter Chamado Descrição</span>
+      <span *ngIf="!chamadoForm.get('descricao').valid && chamadoForm.get('descricao').touched">Por favor preencha a Descrição</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Situação" formControlName="situacao"
            [errorStateMatcher]="matcher">
     <mat-error>
-      <span *ngIf="!chamadoForm.get('situacao').valid && chamadoForm.get('situacao').touched">Please enter Chamado Situação</span>
+      <span *ngIf="!chamadoForm.get('situacao').valid && chamadoForm.get('situacao').touched">Por favor preencha a Situação</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Atendente" formControlName="atendente"
            [errorStateMatcher]="matcher">
     <mat-error>
-      <span *ngIf="!chamadoForm.get('atendente').valid && chamadoForm.get('atendente').touched">Please enter Atendente</span>
+      <span *ngIf="!chamadoForm.get('atendente').valid && chamadoForm.get('atendente').touched">Por favor preencha a Atendente</span>
     </mat-error>
   </mat-form-field>
   <div class="button-row">

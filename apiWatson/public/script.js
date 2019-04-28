@@ -11,7 +11,7 @@ const templateChatMessage = (message, from) => `
   </div>
   `;
 
-// Crate a Element and append to chat
+
 const InsertTemplateInTheChat = (template) => {
   const div = document.createElement('div');
   div.innerHTML = template;
@@ -19,7 +19,7 @@ const InsertTemplateInTheChat = (template) => {
   chat.appendChild(div);
 };
 
-// Calling server and get the watson output
+
 const getWatsonMessageAndInsertTemplate = async (text = '') => {
   const uri = 'http://localhost:3001/conversation/';
   console.log("Context >>>", context);
@@ -41,13 +41,13 @@ const getWatsonMessageAndInsertTemplate = async (text = '') => {
 
 textInput.addEventListener('keydown', (event) => {
   if (event.keyCode === 13 && textInput.value) {
-    // Send the user message
+
     getWatsonMessageAndInsertTemplate(textInput.value);
 
     const template = templateChatMessage(textInput.value, 'user');
     InsertTemplateInTheChat(template);
 
-    // Clear input box for further messages
+    
     textInput.value = '';
   }
 });
