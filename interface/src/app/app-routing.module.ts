@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: '', component: ChamadoComponent },  
   { path: 'chamado', component: ChamadoComponent },  
   { path: 'chamado-create', component: ChamadoCreateComponent },  
-  { path: 'chamado-details', component: ChamadoDetailComponent },  
-  { path: 'chamado-edit', component: ChamadoEditComponent }  
+  { path: 'chamado-details/:id', component: ChamadoDetailComponent },  
+  { path: 'chamado-edit/:id', component: ChamadoEditComponent }  
 ];
 
 @NgModule({

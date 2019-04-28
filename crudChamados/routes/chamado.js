@@ -5,6 +5,7 @@ var Chamado = require('../models/Chamado.js');
 
 /* GET ALL CHAMADOS */
 router.get('/', function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   Chamado.find(function (err, products) {
     if (err) return next(err);
     res.json(products);
@@ -15,12 +16,14 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   Chamado.findById(req.params.id, function (err, post) {
     if (err) return next(err);
+    console.log("CHAMADO >>>>", post);
     res.json(post);
   });
 });
 
 /* SAVE CHAMADO */
 router.post('/', function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   Chamado.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);

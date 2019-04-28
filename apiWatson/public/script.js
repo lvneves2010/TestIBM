@@ -22,7 +22,7 @@ const InsertTemplateInTheChat = (template) => {
 // Calling server and get the watson output
 const getWatsonMessageAndInsertTemplate = async (text = '') => {
   const uri = 'http://localhost:3001/conversation/';
-
+  console.log("Context >>>", context);
   const response = await (await fetch(uri, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

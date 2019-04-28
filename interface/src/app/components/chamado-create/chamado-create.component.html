@@ -2,29 +2,29 @@
   <div class="button-row">
     <button class="primary" [routerLink]="['/chamado']">Voltar</button>
   </div>
-  <form action="submit">
+  <form [formGroup]="chamadoForm" (ngSubmit)="onFormSubmit(chamadoForm.value)">
     <div class="form-group">
       <label for="name">Nome</label><br>
-      <input type="text" class="form-control" id="nome" required>
+      <input type="text" class="form-control" id="nome" formControlName="nome" required>
     </div>
 
     <div class="form-group">
       <label for="descricao">Descrição</label><br>
-      <input type="text" class="form-control" id="descricao" required>
+      <input type="text" class="form-control" id="descricao" formControlName="descricao" required>
     </div>
 
     <div class="form-group">
       <label for="situacao">Situação</label><br>
-      <input type="text" class="form-control" id=situacao required>
+      <input type="text" class="form-control" id="situacao" formControlName="situacao" required>
     </div>
 
     <div class="form-group">
       <label for="atendente">Atendente</label><br>
-      <input type="text" class="form-control" id="atendente" required>
+      <input type="text" class="form-control" id="atendente" formControlName="atendente" required>
+    </div>
+    <div class="button-row">
+      <button type="submit" class="primary">Salvar</button>
     </div>
   </form>
 
-  <div class="button-row">
-    <button class="primary">Salvar</button>
-  </div>
 </div>

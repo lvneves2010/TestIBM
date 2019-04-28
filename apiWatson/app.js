@@ -16,6 +16,14 @@ const assistant = new AssistantV1({
   url: 'https://gateway.watsonplatform.net/assistant/api'
 });
 
+app.use(function(req, res, next){
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "OPTIONS, POST");
+
+  next();
+});
+
 app.post('/conversation/', (req, res) => {
   const { text, context = {} } = req.body;
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ChamadoService } from '../../services/chamado.service';
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chamado-edit',
@@ -7,20 +10,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChamadoEditComponent implements OnInit {
 
-  chamado =
-  {
-    "_id": "5cbc5459be69a50610203b2e",
-    "nome": "Leonardo Neves",
-    "descricao": "Teste novo BD",
-    "situacao": "Encerrado",
-    "atendente": "Vinicius",
-    "updated_date": "2019-04-21T11:30:33.329Z",
-    "__v": 0
-  }
-
-  constructor() { }
+  chamado = {};
+  chamadoForm: FormGroup;
+  id:string = '';
+  nome:string = '';
+  descricao:string = '';
+  situacao:string = '';
+  atendente:string = '';
+  constructor(private route: ActivatedRoute, private chamadoService: ChamadoService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.getChamadoDetails(this.route.snapshot.params['id']);
+    this.chamadoForm = this.formBuilder.group({
+      'nome' : [null, Validators.required],
+      'descricao' : [null, Validators.required],
+      'situacao' : [null, Validators.required],
+      'atendente' : [null, Validators.required]
+    });
   }
+
+  getChamadoDetails(id) {
+    this.chamadoService.getChamado(id)
+      .then(data => {
+        console.log(data);
+        this.chamado = data;
+      });
+  }
+
+  onFormSubmit(form:NgForm) {
+    console.log(form, this.chamado);
+    this.chamadoService.updateChamado(this.chamado["_id"], form)
+      .then(res => {
+          let id = res['_id'];
+          this.router.navigate(['/chamado']);
+        }, (err) => {
+          console.log(err);
+        }
+      );
+  }
+  
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { ChamadoService } from '../../services/chamado.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
@@ -14,27 +14,27 @@ export class ChamadoComponent implements OnInit {
   resposta: any;
   chamados: any;
   displayedColumns = ["Nome", "Descrição", "Situação"];
-  dataSource = new ChamadoDataSource(this.api);
+  dataSource = new ChamadoDataSource(this.chamadoService);
   
-  constructor(private api: ApiService) { }
+  constructor(private chamadoService: ChamadoService) { }
 
   ngOnInit() {
-    this.api.getChamados()
-      .subscribe(res => {
-        console.log(res);
+    this.chamadoService.getChamados()
+      .then(res => {
         this.chamados = res;
       }, err => {
         console.log(err);
       });
   }
 }
+
 export class ChamadoDataSource extends DataSource<any> {
-  constructor(private api: ApiService) {
+  constructor(private chamadoService: ChamadoService) {
     super()
   }
 
   connect() {
-    return this.api.getChamados();
+    return this.chamadoService.getChamadosDataTable();
   }
 
   disconnect() {

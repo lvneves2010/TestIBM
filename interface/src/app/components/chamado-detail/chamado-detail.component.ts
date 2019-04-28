@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from '../../services/api.service';
+import { ChamadoService } from '../../services/chamado.service';
 
 @Component({
   selector: 'app-chamado-detail',
@@ -11,23 +11,23 @@ export class ChamadoDetailComponent implements OnInit {
 
   chamado = {}
 
-  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private chamadoService: ChamadoService, private router: Router) { }
 
   ngOnInit() {
     this.getChamadoDetails(this.route.snapshot.params['id']);
   }
 
   getChamadoDetails(id) {
-    this.api.getChamado(id)
-      .subscribe(data => {
+    this.chamadoService.getChamado(id)
+      .then(data => {
         console.log(data);
         this.chamado = data;
       });
   }
 
   deleteChamado(id) {
-    this.api.deleteChamado(id)
-      .subscribe(res => {
+    this.chamadoService.deleteChamado(id)
+      .then(res => {
           this.router.navigate(['/chamado']);
         }, (err) => {
           console.log(err);

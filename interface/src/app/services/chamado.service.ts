@@ -1,9 +1,39 @@
 import { Injectable } from '@angular/core';
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { catchError, tap, map } from 'rxjs/operators';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChamadoService {
+export class ChamadoService extends ApiService{
 
-  constructor() { }
+  constructor(public http: HttpClient) { 
+  	super(http);
+  }
+
+  getChamados() {
+    return super.get('3000', 'api', {});
+  }
+
+  getChamadosDataTable(): Observable<any> {
+    return super.getObservable('3000', 'api', {});
+  }
+  getChamado(id: string) {
+    return super.get('3000', `api/${id}`, {});
+  }
+
+  postChamado(data) {
+    return super.post('3000', 'api/', data);
+  }
+
+  updateChamado(id: string, data) {
+    return super.put('3000', `api/${id}`, data);
+  }
+
+  deleteChamado(id: string) {
+    return super.delete('3000', `api/${id}`);
+  }
+
 }

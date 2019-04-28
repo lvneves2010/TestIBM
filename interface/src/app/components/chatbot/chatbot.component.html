@@ -2,11 +2,16 @@
 <div class="container">
   <div class="chatbot">
     <div id="chat">
-      <p>Ola</p>
+      <div *ngFor="let msgObj of messages">
+          <div class="from-{{msgObj.from}}">
+            <div class="message-inner">
+              <p>{{msgObj.msg}}</p>
+            </div>
+          </div>
+        </div>
     </div>
     <label for="textInput" class="inputOutline">
-      <input id="textInput" class="input responsive-column" autofocus placeholder="Digite aqui" type="text">
+      <input id="textInput" class="input responsive-column" [disabled]="disableSend" (keyup.enter)="sendMessage()" autofocus placeholder="Digite aqui" [(ngModel)]="message" type="text">
     </label>
   </div>
 </div>
-<script src="./script.js"></script>
