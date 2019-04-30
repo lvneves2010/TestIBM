@@ -4,10 +4,17 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 
+// Conexão MongoDB Atlas (Cloud)
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/testeIBM')
+mongoose.connect('mongodb+srv://lvneves2010:Gustavo0801@cluster0-m9sca.mongodb.net/testIBM?retryWrites=true')
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
+
+// Conexão Mongo DB localhost
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/testeIBM')
+//   .then(() =>  console.log('connection succesful'))
+//   .catch((err) => console.error(err));
 
 var apiRouter = require('./routes/chamado');
 

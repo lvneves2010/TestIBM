@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ChamadoService } from '../../services/chamado.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ChatbotComponent } from '../chatbot/chatbot.component';
+import { ChamadoService } from '../../services/chamado.service';
 
 @Component({
   selector: 'app-chamado-create',
