@@ -42,23 +42,21 @@ app.post('/conversation/', (req, res) => {
       console.error(err);
       res.status(500).json(err);
     } else {
+      console.log('passei aqui antes')
       let nome = response.context.nome_usuario;
       let descricao = response.context.descricao;
-      if (nome != null && descricao != null && descricao !== 'descricao_sintaxe') {
+      if (nome != null && nome !="" && descricao != null && descricao !="" && descricao !== 'descricao_sintaxe') {
         connection.CreateChamado({
           nome: nome,
           descricao: descricao,
           situacao: 'Em Aberto',
           atendente: 'Watson'
         });
-
-        assistant.message({
-          input: {text: '' },
-          workspace_id: '96304b5c-6894-46ae-916c-9e8a166e1757',
-          empty_context,
-        })
+        console.log('passei aqui depois!!')
       }
-      console.log('apiWatson response>>>', response)
+      nome = "";
+      descricao = "";
+      // console.log('apiWatson response>>>', response)
       res.json(response);
     }
   });
