@@ -2,4 +2,4 @@
 applications:
  - name: APIWatson
    random-route: true
-   memory: 256M
+   memory: 100M

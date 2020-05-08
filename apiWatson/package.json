@@ -2,7 +2,7 @@
   "name": "watson-sample-chatbot",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^5.0.1",

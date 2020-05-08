@@ -21,8 +21,12 @@ const InsertTemplateInTheChat = (template) => {
 
 
 const getWatsonMessageAndInsertTemplate = async (text = '') => {
-  const uri = 'http://localhost:3001/conversation/';
-  // console.log("Context >>>", context);
+  // uri to be used in the Bluemix environment
+  const uri = 'https://apresentacao-do-chatbot.mybluemix.net/conversation/';
+
+  // uri to be used in local environment
+  // const uri = 'https://apresentacao-do-chatbot.mybluemix.net/conversation/';
+
   const response = await (await fetch(uri, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
