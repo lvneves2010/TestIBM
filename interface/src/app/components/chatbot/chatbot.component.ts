@@ -74,7 +74,7 @@ export class ChatbotComponent implements OnInit {
           situacao: 'Aberto'
         };
 
-        this.http.post('https://e2b80b9d31da.ngrok-free.app/api', chamadoData)
+        this.http.post('https://dab20f2c662e.ngrok-free.app/api', chamadoData)
           .subscribe({
             next: () => {
               console.log('Chamado registrado com sucesso no banco de dados.')

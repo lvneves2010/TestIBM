@@ -1,0 +1,2 @@
+Ai iniciar os servidores temos que executar:
+ngrok http300, pegar o serivodr que for gerado e colar em chatbot.components.ts
