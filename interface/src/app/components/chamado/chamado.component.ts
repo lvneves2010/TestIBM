@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ChamadoService } from '../../services/chamado.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { DataSource } from '@angular/cdk/collections';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chamado',
@@ -15,6 +15,8 @@ export class ChamadoComponent implements OnInit {
   chamados: any;
   displayedColumns = ["Nome", "Descrição", "Situação"];
   dataSource = new ChamadoDataSource(this.chamadoService);
+  loading = false;
+  private subscription!: Subscription;
   
   constructor(private chamadoService: ChamadoService) { }
 
@@ -24,6 +26,29 @@ export class ChamadoComponent implements OnInit {
         this.chamados = res;
       }, err => {
         console.log(err);
+      });
+
+      this.subscription = this.chamadoService.chamadoCriado$.subscribe(() => {
+      this.loadChamados();
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  loadChamados() {
+    this.loading = true;
+    this.chamadoService.getChamados()
+      .then(res => {
+        this.chamados = res;
+        this.loading = false;
+      })
+      .catch(err => {
+        console.error(err);
+        this.loading = false;
       });
   }
 }

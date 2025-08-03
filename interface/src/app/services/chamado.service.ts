@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { ApiService } from './api.service';
@@ -8,6 +8,9 @@ import { ApiService } from './api.service';
   providedIn: 'root'
 })
 export class ChamadoService extends ApiService{
+
+    private chamadoCriadoSource = new Subject<void>();
+  chamadoCriado$ = this.chamadoCriadoSource.asObservable()
 
   constructor(public http: HttpClient) { 
   	super(http);
@@ -34,6 +37,10 @@ export class ChamadoService extends ApiService{
 
   deleteChamado(id: string) {
     return super.delete('3000', `api/${id}`);
+  }
+
+  notificarNovoChamado() {
+    this.chamadoCriadoSource.next();
   }
 
 }

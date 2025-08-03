@@ -1,0 +1,51 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Chamados",
+    "version": "1.0.0",
+    "description": "API para criar chamados a partir do Watson Assistant."
+  },
+  "servers": [
+    {
+      "url": "https://e2b80b9d31da.ngrok-free.app",
+      "description": "Servidor principal do CRUD de chamados"
+    }
+  ],
+  "paths": {
+    "/api": {
+      "post": {
+        "summary": "Cria um chamado",
+        "operationId": "criarChamado",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string",
+                    "example": "Leonardo Neves"
+                  },
+                  "descricao": {
+                    "type": "string",
+                    "example": "Sistema apresenta erro ao salvar dados."
+                  }
+                },
+                "required": ["nome", "descricao"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chamado criado com sucesso"
+          },
+          "400": {
+            "description": "Erro na requisição"
+          }
+        }
+      }
+    }
+  }
+}
