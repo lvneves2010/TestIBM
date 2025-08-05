@@ -1,2 +1,8 @@
-Ai iniciar os servidores temos que executar:
-ngrok http300, pegar o serivodr que for gerado e colar em chatbot.components.ts
+apiWatson: Localhost:3001
+crudChamados: Localhost:3000
+interface: Localhost:4200 
+Necessário npm install em cada um dos módulos
+
+Ao iniciar os servidores temos que executar em um terminal separado:
+[ngrok http3000]
+O servidor que for gerado deve ser declarado em chatbot.components.ts
